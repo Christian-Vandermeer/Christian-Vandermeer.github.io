@@ -6,6 +6,8 @@
 <p>Update, Update, Update! </p>
 <p>Update 2 , Update 2, Update 2! </p>
 </body>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +16,45 @@
     <title>Home</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        nav { background: #333; padding: 10px; }
+        nav { background: #333; padding: 10px; position: relative; display: inline-block; }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
         nav a:hover { text-decoration: underline; }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-align: left;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <div class="dropdown">
+            <a href="#">Menu</a>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
     </nav>
     <h1>Welcome to the Home Page</h1>
     <p>This is the main page of our simple multi-page website.</p>
 </body>
 </html>
 
-
-
-
-</html>
