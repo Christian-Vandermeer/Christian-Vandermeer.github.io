@@ -3,282 +3,747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Christian Vandermeer] | Engineering Portfolio </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Christian Vandermeer | MRE Student </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & GLOBAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #fff;
+            font-size: 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: #111;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        /* LAYOUT */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .resume {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .resume {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* SIDEBAR */
+        .sidebar {
+            padding-top: 30px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 2px;
+            background: #0066cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .contact-item i {
+            color: #0066cc;
+            width: 16px;
+            margin-top: 2px;
+        }
+        
+        .skills-list {
+            margin-bottom: 30px;
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category h4 {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #f5f5f5;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+        
+        /* MAIN CONTENT */
+        .main-content {
+            padding-top: 10px;
+        }
+        
+        .name-title {
+            margin-bottom: 25px;
+        }
+        
+        .name-title h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: #111;
+        }
+        
+        .name-title .title {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+        
+        .summary {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 3px solid #0066cc;
+        }
+        
+        .summary p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        /* EXPERIENCE */
+        .experience-item {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .exp-title {
+            font-size: 1.2rem;
+            color: #111;
+        }
+        
+        .exp-company {
+            color: #0066cc;
+            font-weight: 500;
+        }
+        
+        .exp-date {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .exp-details {
+            margin-top: 15px;
+        }
+        
+        .exp-details p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        .exp-highlights li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        /* PROJECTS */
+        .projects-section {
+            margin-top: 40px;
+        }
+        
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            color: #111;
+        }
+        
+        .project-date {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .project-desc {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: #e6f2ff;
+            color: #0066cc;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+        
+        /* EDUCATION */
+        .education-section {
+            margin-top: 40px;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .edu-degree {
+            font-weight: 500;
+            color: #111;
+        }
+        
+        .edu-school {
+            color: #0066cc;
+        }
+        
+        .edu-date {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .edu-details {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* HEADER NAV */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            color: #111;
+            font-size: 1.3rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: #666;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #f9f9f9;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+        
+        .footer-links a:hover {
+            color: #0066cc;
+        }
+        
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                border-bottom: 1px solid #eee;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links a {
+                padding: 15px 0;
+                border-bottom: 1px solid #f5f5f5;
+                width: 100%;
+            }
+            
+            .exp-header, .project-header, .edu-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media print {
+            header, footer, .menu-toggle {
+                display: none;
+            }
+            
+            .resume {
+                grid-template-columns: 250px 1fr;
+                gap: 30px;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+            
+            a {
+                text-decoration: none;
+                color: #111;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <header>
         <div class="container">
-            <a href="#" class="logo">[Christian Vandermeer]</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <!-- <li><a href="music.html">Music</a></li>  -->
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <nav>
+                <div class="logo">CV</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Hi, I'm <span>Christian</span></h1>
-                <h2>Engineering Undergraduate</h2>
-                <p>Mechatronics and Robotics Engineering (MRE) @ Queen's University</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
-                </div>
-            </div>
-            <div class="profile-image">
-                <img src="Resized_Headshot.jpg" alt="Christian's Profile Picture" width="350", height="250">
-                <div class="image-border"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a MRE student interested in automation and industrial robotics </p>
-                    <p>My academic journey and project experience has equipped me with theoretical knowledge and practical skills. I enjoy solving complex problems and turning ideas into reality through engineering principles.</p>
-                    <p>After starting programming in Visual Studio, and programming simple robots in highscool, I realized my passion, and this inspired me to explore opportunities in the MRE program at Queen's. </p>
-                </div>
-                <div class="about-details">
-                    <div class="detail-item">
-                        <h3>Name:</h3>
-                        <p>Christian Vandermeer</p>
-                    </div>
-                    <div class="detail-item">
-                        <h3>Email:</h3>
-                        <p>christian.vandermeer2@gmail.com</p>
-                    </div>
-                    <div class="detail-item">
-                        <h3>University:</h3>
-                        <p>Queen's University </p>
-                    </div>
-                    <div class="detail-item">
-                        <h3>Major:</h3>
-                        <p>Mechatronics and Robotics Engineering</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="C:\Users\cjvan\OneDrive\Desktop\Repository\Christian-Vandermeer.github.io\Robot-Dimensions.png"alt="Project 1">
-                    </div>
-                    <div class="project-info">
-                        <h3>Mobile Robot with 2-DOF Arm</h3>
-                        <p>MREN 303 Design Project</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-small">View Details</a>
-                            <a href="#" class="btn-small btn-outline"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="C:\Users\cjvan\OneDrive\Desktop\Repository\Christian-Vandermeer.github.io\Learning Model.png"alt="Project 2">
-                    </div>
-                    <div class="project-info">
-                        <h3>QKRT Computer Vision Model</h3>
-                        <p>A Computer Vision Model used for armour plate detection in the Robomaster arena</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-small">View Details</a>
-                            <a href="#" class="btn-small btn-outline"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="C:\Users\cjvan\OneDrive\Desktop\Repository\Christian-Vandermeer.github.io\Arm-Photo.jpg" alt="Project 3">
-                    </div>
-                    <div class="project-info">
-                        <h3>2 DOF Assistive Arm</h3>
-                        <p>APSC 101 Design Project</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-small">View Details</a>
-                            <a href="#" class="btn-small btn-outline"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Engineering Skills</h3>
-                    <ul>
-                        <li>CAD Design (SolidWorks, AutoCAD)</li>
-                        <li>Circuit Design, Assembly & Analysis</li>
-                        <li>FESTO Power Electronics LabVolt</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>C/C++</li>
-                        <li>Arduino/Raspberry Pi</li>
-                        <li>MATLAB</li>
-                        <li>PLC Logic Programming</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Software & Tools</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>C/C++</li>
-                        <li>Arduino/Raspberry Pi</li>
-                        <li>MATLAB</li>
-                        <li>PLC Logic Programming</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- Education Section -->
-<section id="education" class="education">
     <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="timeline">
-            <!-- University Entry -->
-            <div class="timeline-item">
-                <div class="timeline-date">2022 - Present</div>
-                <div class="timeline-image-container">
-                    <div class="timeline-image">
-                        <img src="C:\Users\cjvan\Downloads\Smith_engineering_logo.png" alt="University Name">
+        <div class="resume">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="profile-img">
+                    <i class="fas fa-user-cog"></i>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 class="section-title">Contact</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kingston - Oshawa, ON</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/alexmorgan</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/alexmorgan</span>
                     </div>
                 </div>
-                <div class="timeline-content">
-                    <div class="content-border">
-                        <h3>Queen's University</h3>
-                        <p>Mechatronics and Robotics Engineering (MRE)</p>
-                        <ul>
-                            <li>Queen's University Excellence Scholarship</li>
-                            <li>Queen's Knights Robotics Team (QKRT)</li>
-                        </ul>
+                
+                <div class="skills-list" id="skills">
+                    <h3 class="section-title">Technical Skills</h3>
+                    
+                    <div class="skill-category">
+                        <h4>Engineering Software</h4>
+                        <div class="skills">
+                            <span class="skill-tag">SolidWorks</span>
+                            
+                            <span class="skill-tag">Siemens Simatic 7</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Prototyping & Hardware</h4>
+                        <div class="skills">
+                            <span class="skill-tag">3D Printing</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">Raspberry Pi</span>
+                            <span class="skill-tag">Circuit Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Programming & Tools</h4>
+                        <div class="skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">MATLAB</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="education-section" id="education">
+                    <h3 class="section-title">Education</h3>
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <div>
+                                <div class="edu-degree">B.Sc. Mechatronics and Robotics Engineering</div>
+                                <div class="edu-school">Queen's University</div>
+                            </div>
+                            <div class="edu-date">2022 - 2027</div>
+                        </div>
+                        <div class="edu-details">
+                            <p>Direct Entry MRE Program</p>
+                            <p>Professional Internship Designation</p>
+                            <p>Relevant Courses: Electronics I,II, Intro. to Robotics, Industrial Automation, Automatic Control</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
             
-            <!-- High School Entry -->
-            <div class="timeline-item">
-                <div class="timeline-date">2018 - 2022</div>
-                <div class="timeline-image-container">
-                    <div class="timeline-image">
-                        <img src="C:\Users\cjvan\Downloads\Holy Trinity.png" alt="High School Name" width="120", height="120">
-                    </div>
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="name-title">
+                    <h1>Christian Vandermeer</h1>
+                    <div class="title"> Undergraduate MRE Student</div>
                 </div>
-                <div class="timeline-content">
-                    <div class="content-border">
-                        <h3>Holy Trinity CSS</h3>
-                        <ul>
-                            <li>Valedictorian</li>
-                            <li>Ontario Scholar</li>
-                            <li>Municpality of Clarington Academic Excellence</li>
-                            <li>Outstanding Contribution to School Community</li>
-                            <li>PVNCCDSB Student Liasion</li>
-                            <li>Student Council Minister of External Affairs</li>
+                
+                <div class="summary">
+                    <p>4th-Year Undegraduate MRE Student interested in solutions at the intersection of robotics and automation </p>
+                </div>
+                
+                <!-- EXPERIENCE -->
+                <section id="experience">
+                    <h2 class="section-title">Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">STEM & Robotics Coordinator</div>
+                                <div class="exp-company">BGC South East</div>
+                            </div>
+                            <div class="exp-date">September 2025 - Present</div>
+                        </div>
+                        <div class="exp-details">
+                            <p>Developing and delivering STEM education programs focused on robotics and engineering principles for youth aged 10-18. Managing the technology center and $50,000+ in robotics equipment while creating accessible engineering curriculum.</p>
+                            <ul class="exp-highlights">
+                                <li>Design and facilitate weekly workshops on robotics, coding, and engineering design principles for groups of 20-30 students</li>
+                                <li>Develop curriculum that connects theoretical concepts with hands-on projects using LEGO Mindstorms, VEX Robotics, and Arduino platforms</li>
+                                <li>Manage inventory, maintenance, and procurement of all STEM equipment and technology resources</li>
+                                <li>Collaborate with local schools to integrate STEM programming into their extracurricular activities</li>
+                                <li>Document program outcomes and impact metrics for grant reporting and stakeholder presentations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Clinical Systems Operator</div>
+                                <div class="exp-company">Octane Group of Companies</div>
+                            </div>
+                            <div class="exp-date">May 2025 - September 2025</div>
+                        </div>
+                        <div class="exp-details">
+                            <p>Created detailed 3D models and technical drawings for custom manufacturing projects, working closely with engineering and production teams to ensure manufacturability and quality.</p>
+                            <ul class="exp-highlights">
+                                <li>Designed 50+ custom parts from initial concept to manufacturing-ready technical drawings with GD&T specifications</li>
+                                <li>Redesigned assembly process for flagship product line, reducing assembly time by 20% and decreasing part count by 15%</li>
+                                <li>Created comprehensive technical documentation including assembly instructions and quality control checklists</li>
+                                <li>Collaborated directly with machinists to optimize designs for CNC manufacturing, reducing material waste by 12%</li>
+                                <li>Assisted in prototyping and testing phases, providing design modifications based on performance feedback</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Research Assistant</div>
+                                <div class="exp-company">University Energy Lab</div>
+                            </div>
+                            <div class="exp-date">January 2022 - May 2022</div>
+                        </div>
+                        <div class="exp-details">
+                            <p>Supported research on improving efficiency of small-scale wind turbines for urban environments through computational analysis and physical prototyping.</p>
+                            <ul class="exp-highlights">
+                                <li>Assembled and tested 12 different prototype turbine blade designs in wind tunnel, collecting performance data</li>
+                                <li>Analyzed experimental data using MATLAB to identify optimal blade configurations for low-wind conditions</li>
+                                <li>Assisted in writing research paper published in Journal of Renewable Energy</li>
+                                <li>Presented findings at university research symposium to audience of 100+ faculty and industry professionals</li>
+                                <li>Developed automated data collection system using Arduino and Python to streamline testing procedures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- PROJECTS -->
+                <section class="projects-section" id="projects">
+                    <h2 class="section-title">Engineering Projects</h2>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Autonomous Campus Delivery Robot</div>
+                            <div class="project-date">January 2024 - April 2024</div>
+                        </div>
+                        <div class="project-desc">
+                            <p>Designed and built a fully autonomous delivery robot capable of navigating campus pathways while avoiding obstacles. The system integrates computer vision, sensor fusion, and path planning algorithms to safely deliver packages across campus.</p>
+                        </div>
+                        <ul class="exp-highlights">
+                            <li>Developed obstacle detection system using ultrasonic sensors and Raspberry Pi camera with OpenCV</li>
+                            <li>Implemented A* pathfinding algorithm for efficient route planning across campus map</li>
+                            <li>Designed and 3D-printed custom chassis and components to optimize weight distribution and durability</li>
+                            <li>Integrated secure package compartment with RFID authentication system</li>
+                            <li>Achieved successful autonomous navigation over 1km test route with 100% obstacle avoidance</li>
                         </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Robotics</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SolidWorks</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">3D Printing</span>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Dual-Axis Solar Tracking System</div>
+                            <div class="project-date">September 2023 - December 2023</div>
+                        </div>
+                        <div class="project-desc">
+                            <p>Designed and built an optimized solar tracking system that increases energy collection efficiency by adjusting panel orientation throughout the day. The system uses light sensors and microcontroller-based control to maximize energy capture.</p>
+                        </div>
+                        <ul class="exp-highlights">
+                            <li>Designed mechanical tracking mechanism with 2 degrees of freedom using stepper motors and gear reducers</li>
+                            <li>Developed control algorithm that increased energy collection by 35% compared to fixed panels</li>
+                            <li>Implemented weather-resistant enclosure and fail-safe position for high wind conditions</li>
+                            <li>Created real-time monitoring interface displaying power output, panel angle, and efficiency metrics</li>
+                            <li>Conducted month-long field testing with data logging to validate performance improvements</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Renewable Energy</span>
+                            <span class="tech-tag">Arduino</span>
+                            <span class="tech-tag">Circuit Design</span>
+                            <span class="tech-tag">Mechanical Design</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Urban Wind Turbine Blade Optimization</div>
+                            <div class="project-date">March 2023 - May 2023</div>
+                        </div>
+                        <div class="project-desc">
+                            <p>Used computational fluid dynamics (CFD) to analyze and optimize wind turbine blade designs specifically for low-wind urban environments, focusing on noise reduction and start-up performance.</p>
+                        </div>
+                        <ul class="exp-highlights">
+                            <li>Created 3D blade models in SolidWorks and performed CFD simulations using ANSYS Fluent</li>
+                            <li>Analyzed 8 different blade geometries to optimize for low wind speeds (3-7 m/s)</li>
+                            <li>Reduced noise emissions by 22% through blade shape modifications while maintaining efficiency</li>
+                            <li>Validated simulation results with 3D-printed scale models tested in wind tunnel</li>
+                            <li>Documented findings in comprehensive technical report with recommendations for urban implementation</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">CFD Analysis</span>
+                            <span class="tech-tag">ANSYS</span>
+                            <span class="tech-tag">Aerodynamics</span>
+                            <span class="tech-tag">3D Modeling</span>
+                            <span class="tech-tag">Technical Reporting</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
     </div>
-</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <footer>
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><i class="fas fa-envelope"></i> [christian.vandermeer2@gmail.com]</p>
-                    <p><i class="fas fa-phone"></i> [+1 (905) 621-8870]</p>
-                    <p><i class="fas fa-map-marker-alt"></i> [Kingston, ON]</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/your-profile/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Christian-Vandermeer" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/your-username/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="mailto:alex.morgan@email.com">
+                        <i class="fas fa-envelope"></i>
+                        alex.morgan@email.com
+                    </a>
+                    <a href="https://linkedin.com/in/alexmorgan" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/alexmorgan" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+                <p class="copyright">© 2025 Alex Morgan. Mechanical Engineering Portfolio.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Christian Vandermeer. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Update copyright year automatically
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
         // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
         
-        hamburger.addEventListener('click', () => {
+        menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking a link
+        // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
@@ -286,9 +751,17 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>

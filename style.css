@@ -670,9 +670,9 @@ section {
 }
 
 .timeline-image-container {
-    position: relative;
-    width: 80px;
-    height: 80px;
+    position: left;
+    width: 100px;
+    height: 100px;
     margin-right: 20px;
     flex-shrink: 0;
     display: flex;
