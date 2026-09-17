@@ -1,2 +1,2 @@
 ## My Personal Portfolio Website
-My personal website to share projects
+My personal website to share projects and experience
