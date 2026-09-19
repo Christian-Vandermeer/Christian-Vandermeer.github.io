@@ -269,27 +269,23 @@
 
         .entry li { margin-bottom: 6px; }
 
-        /* PHOTOS */
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+            gap: 1rem;
+            justify-content: center;
+            align-items: start;
         }
 
-        .photo-slot {
-            aspect-ratio: 4 / 3;
-            background: #fafafa;
-            /*border: 0px solid #e8e8e8; */
-            overflow: hidden;
-            position: relative;
-            border-radius: 2px;
+        .photo-grid > * {          /* catches wrapper divs/figures too */
+            height: auto;
+            overflow: visible;
         }
 
-        .photo-slot img {
+        .photo-grid img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             display: block;
         }
 
@@ -515,7 +511,7 @@
                 <h3 class="section-title">Contact</h3>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Kingston · Oshawa, ON</span>
+                    <span>Oshawa · Kingston , ON</span>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
@@ -597,7 +593,7 @@
 
             <div class="intro">
                 <p>
-                    I am a 5th-year student in the Queen's University Mechatronics and Robotics Engineering (MRE) program. This program is one of the newest developments in the university's long-standing engineering program. It offers opportunities for interdisciplinary exploration across fields ranging from advanced physics and machine movement to artificial intelligence.
+                    I am a 4th-year student in the Queen's University Mechatronics and Robotics Engineering (MRE) program. This program is one of the newest developments in the university's long-standing engineering program. It offers opportunities for interdisciplinary exploration across fields ranging from advanced physics and machine movement to artificial intelligence. I intend to finish my undergraduate studies in the spring of 2027, with Professional Internship designation (QUIP).
                 </p>
             </div>
 
@@ -629,7 +625,7 @@
                 <div class="course">
                     <h3>Mechatronics and Robotics Design IV <span class="course-code">MREN 403A / 403B</span></h3>
                     <p>
-                        Culminating experiential capstone design experience. Our team is developing a system that detects a string-instrument player's posture and the location and orientation of a cello bow from images collected by a smart device. The system will provide dynamic feedback for posture, bow position, perpendicularity, and roll, while incorporating real-time signal processing to analyze audio quality.
+                        Culminating experiential capstone design experience. Our team is developing a system that detects a cellos player's arm posture and the location and orientation of the instruments bow from images collected by a smart device. The system will provide dynamic feedback for posture, bow position, perpendicularity, and roll, while incorporating real-time signal processing to analyze audio quality.
                     </p>
                 </div>
             </section>
@@ -647,9 +643,11 @@
                         <div class="entry-date">September 2025 – August 2026</div>
                     </div>
                     <ul>
-                        <li>Designed, evaluated, and delivered STEM and robotics programming and events to diverse youth and adult audiences, fostering hands-on learning across electronics, robotics, and mechanical design.</li>
+                        <li>Designed, evaluated, and delivered STEM and robotics programming and events to diverse youth and adult audiences, fostering hands-on learning across electronics, robotics, mechanical design and AI/ML topics.</li>
                         <li>Mentored youth participants through project-based learning, encouraging problem-solving, critical thinking, and teamwork through real-world engineering challenges.</li>
-                        <li>Developed program documentation and evaluation frameworks to support the strategic expansion of BGC STEM and Robotics programming to the Brockville SLC Campus.</li>
+                       <li> Managed electronics inventory, including microcontrollers, microprocessors, sensors, and actuators, so materials were easy to find and ready for projects.</li>
+                        <li>Supervised the centres makerspace, including use of hand tools, ensuring proper and safe use.</li>
+                        <li>Developed program documentation and evaluation frameworks to support the strategic expansion of BGC STEM and Robotics programming to the Brockville SLC Campus, and future locations.</li>
                     </ul>
 
                     <div class="photo-grid">
@@ -668,8 +666,8 @@
                         <div class="entry-date">May 2025 – August 2025</div>
                     </div>
                     <ul>
-                        <li>Manufactured clinical systems by following detailed operating procedures in an ISO 7 standard cleanroom.</li>
-                        <li>Used automated systems and human-machine interfaces to test and assemble medical intravenous lines.</li>
+                        <li>Human-Machine interface and interaction with automated assembly cells, following detailed and standard operating procedures to test, inspect, assemble and package medical tubing sets  used in diagnostic imaging technologies.</li>
+                        <li>Apply Good Manufacturing Practices (GMP) in a medical device manufacturing setting while working hygienically in an ISO Level 7-certified cleanroom.</li>
                     </ul>
 
                      <div class="photo-grid">
@@ -689,8 +687,13 @@
                     </div>
                     <ul>
                         <li>Supporting the technical aspects of the Smith Engineering design course, APSC 101.</li>
-                        <li>Aiding students with 3D design and printing, hardware, and software support.</li>
+                        <li>Aiding students with 3D design and printing, providing hardware, and software support.</li>
                     </ul>
+                     <div class="photo-grid">
+                        <div class="photo-slot">
+                            <img src="images\smith.png" alt="Project photo 1">
+                                </div>
+                            </div>
                 </div>
             </section>
 
@@ -707,8 +710,8 @@
                         <div class="entry-date">May 2026 – Current</div>
                         </div>
                         <ul>
-                            <li>Designing and delivering engineering challenges as part of the QEC.</li>
-                            <li>Coordinating competition logistics, materials, budgeting, and challenge development.</li>
+                            <li>The Reimagining Engineering Education (REE) initiative is supported by a distributed team that brings together academic leadership, staff expertise, and student partnership to guide and advance educational change across Smith Engineering at Queen’s University.</li>
+                            <li>Working as apart of the Student Liaison Committee to represent student perspectives within REE and support engagement, consultation, and communication with students across programs and years.</li>
                         </ul>
                 </div>
 
@@ -758,10 +761,11 @@
                         <span class="tech-tag">YOLOv8</span>
                         <span class="tech-tag">Computer Vision</span>
                     </div>
-
-                    <div class="photo-grid">
-                        <div class="images\Learning Model.png"></div>
-                    </div>
+                   <div class="photo-grid">
+                        <div class="photo-slot">
+                            <img src="images\Learning Model.png" alt="Project photo 1">
+                                </div>
+                            </div>
                 </div>
 
                 <div class="project">
